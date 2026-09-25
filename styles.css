@@ -69,7 +69,9 @@ body.dark-mode .sec-num { color: rgba(212,208,200,.12); }
 body.dark-mode .sec-subtitle { color: rgba(212,208,200,.5); }
 
 /* Services */
-body.dark-mode #services { background: #191815; border-bottom-color: var(--blue); }
+body.dark-mode #services { background: #191815; border-bottom-color: var(--blue); color: var(--ink); }
+body.dark-mode #services .sec-title { color: var(--ink); }
+body.dark-mode .svc-title { color: var(--ink); }
 body.dark-mode .services-header { border-bottom-color: rgba(212,208,200,.07); }
 body.dark-mode .svc-item { border-bottom-color: rgba(212,208,200,.06); }
 body.dark-mode .svc-item:hover { background: rgba(212,208,200,.03); }
@@ -96,6 +98,8 @@ body.dark-mode .t-item:hover { color: var(--paper); }
 
 /* Process */
 body.dark-mode #process { background: #191815; }
+body.dark-mode #process .sec-title { color: var(--ink); }
+body.dark-mode .proc-title { color: var(--ink); }
 
 /* Contact */
 body.dark-mode #contact { background: var(--paper); border-top-color: rgba(212,208,200,.1); }
@@ -126,6 +130,8 @@ body.dark-mode select:focus {
 body.dark-mode input::placeholder,
 body.dark-mode textarea::placeholder { color: rgba(212,208,200,.22); }
 body.dark-mode select option { background: var(--paper2); color: var(--ink); }
+body.dark-mode .form-msg.ok { color: #4ade80; background: rgba(74,222,128,.1); border-color: #4ade80; }
+body.dark-mode .form-msg.err { color: #f87171; background: rgba(248,113,113,.1); border-color: #f87171; }
 
 /* Footer */
 body.dark-mode footer { background: #161512; border-top-color: rgba(212,208,200,.07); }
@@ -847,6 +853,23 @@ section { position: relative; }
 .btn-submit span { position: relative; z-index: 1; }
 .btn-submit:hover { color: var(--paper); }
 .btn-submit:hover::before { transform: translateX(0); }
+.btn-submit:disabled { opacity: .6; cursor: not-allowed; }
+.btn-submit:disabled::before { display: none; }
+
+.form-msg {
+  margin-top: 1rem; padding: .85rem 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; letter-spacing: .04em; line-height: 1.5;
+  border-left: 3px solid transparent;
+  display: none;
+}
+.form-msg.show { display: block; }
+.form-msg.ok {
+  color: #1a6f28; background: rgba(26,111,40,.08); border-color: #1a6f28;
+}
+.form-msg.err {
+  color: #c0392b; background: rgba(192,57,43,.08); border-color: #c0392b;
+}
 
 /* ─── FOOTER ─── */
 footer {
