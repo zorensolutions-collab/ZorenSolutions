@@ -536,6 +536,68 @@ function toggleLang() {
   }, 200);
 }
 
+/* ─── CONTACT FORM (FormSubmit AJAX) ─── */
+const contactForm = document.getElementById('contactForm');
+const formMsg = document.getElementById('formMsg');
+const submitBtn = document.getElementById('submitBtn');
+
+const formMessages = {
+  es: {
+    sending: 'ENVIANDO...',
+    ok: '✔ Solicitud enviada. Te contactaremos pronto.',
+    err: '✘ No se pudo enviar. Intenta de nuevo o escríbenos a zorensolutions@gmail.com',
+    original: 'ENVIAR SOLICITUD →'
+  },
+  en: {
+    sending: 'SENDING...',
+    ok: '✔ Request sent. We will contact you soon.',
+    err: '✘ Could not send. Please try again or email zorensolutions@gmail.com',
+    original: 'SEND REQUEST →'
+  }
+};
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const lang = (typeof currentLang !== 'undefined' && formMessages[currentLang]) ? currentLang : 'es';
+    const msgs = formMessages[lang];
+    const btnSpan = submitBtn.querySelector('span');
+    const originalBtnText = btnSpan.textContent;
+
+    submitBtn.disabled = true;
+    btnSpan.textContent = msgs.sending;
+    formMsg.classList.remove('show', 'ok', 'err');
+
+    const formData = new FormData(contactForm);
+
+    fetch(contactForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(response => {
+        if (response.ok) {
+          formMsg.textContent = msgs.ok;
+          formMsg.classList.add('show', 'ok');
+          contactForm.reset();
+        } else {
+          formMsg.textContent = msgs.err;
+          formMsg.classList.add('show', 'err');
+        }
+      })
+      .catch(() => {
+        formMsg.textContent = msgs.err;
+        formMsg.classList.add('show', 'err');
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        btnSpan.textContent = originalBtnText;
+      });
+  });
+}
+
+
 /* ─── DARK MODE ─── */
 let isDark = localStorage.getItem('zorDark') === 'true';
 
