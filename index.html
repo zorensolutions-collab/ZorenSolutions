@@ -530,58 +530,60 @@
       </div>
 
       <div class="contact-right">
-        <form
-          class="contact-form"
-          action="https://formsubmit.co/zorensolutions@gmail.com"
-          method="POST"
-        >
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="Nueva solicitud desde Zoren Solutions">
-          <input type="hidden" name="_next" value="https://jinxx19.github.io/ZorenSolutions/">
-          <input type="text" name="_honey" style="display:none">
+       <form
+  id="contactForm"
+  class="contact-form"
+  action="https://formsubmit.co/ajax/zorensolutions@gmail.com"
+  method="POST"
+>
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_subject" value="Nueva solicitud desde Zoren Solutions">
+  <input type="hidden" name="_template" value="table">
+  <input type="text" name="_honey" style="display:none">
 
-          <div class="form-row-2">
-            <div class="form-group">
-              <label for="nombre">Nombre</label>
-              <input id="nombre" type="text" name="nombre" placeholder="Tu nombre completo" required>
-            </div>
-            <div class="form-group">
-              <label for="empresa">Empresa</label>
-              <input id="empresa" type="text" name="empresa" placeholder="Nombre de tu empresa" required>
-            </div>
-          </div>
+  <div class="form-row-2">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text" name="nombre" placeholder="Tu nombre completo" required>
+    </div>
+    <div class="form-group">
+      <label for="empresa">Empresa</label>
+      <input id="empresa" type="text" name="empresa" placeholder="Nombre de tu empresa" required>
+    </div>
+  </div>
 
-          <div class="form-row-2">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input id="email" type="email" name="email" placeholder="correo@empresa.com" required>
-            </div>
-            <div class="form-group">
-              <label for="telefono">Teléfono</label>
-              <input id="telefono" type="tel" name="telefono" placeholder="+503 0000-0000">
-            </div>
-          </div>
+  <div class="form-row-2">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" placeholder="correo@empresa.com" required>
+    </div>
+    <div class="form-group">
+      <label for="telefono">Teléfono</label>
+      <input id="telefono" type="tel" name="telefono" placeholder="+503 0000-0000">
+    </div>
+  </div>
 
-          <div class="form-group">
-            <label for="servicio">Servicio de interés</label>
-            <select id="servicio" name="servicio" required>
-              <option value="">Selecciona un servicio...</option>
-              <option>Diagnóstico de Riesgos</option>
-              <option>Cámaras con IA</option>
-              <option>Reconocimiento Facial</option>
-              <option>Control QR / Código de Barra</option>
-              <option>Monitoreo SaaS 24/7</option>
-              <option>Sistema integral completo</option>
-            </select>
-          </div>
+  <div class="form-group">
+    <label for="servicio">Servicio de interés</label>
+    <select id="servicio" name="servicio" required>
+      <option value="">Selecciona un servicio...</option>
+      <option>Diagnóstico de Riesgos</option>
+      <option>Cámaras con IA</option>
+      <option>Reconocimiento Facial</option>
+      <option>Control QR / Código de Barra</option>
+      <option>Monitoreo SaaS 24/7</option>
+      <option>Sistema integral completo</option>
+    </select>
+  </div>
 
-          <div class="form-group">
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre los desafíos de seguridad que enfrenta tu empresa..."></textarea>
-          </div>
+  <div class="form-group">
+    <label for="mensaje">Mensaje</label>
+    <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre los desafíos de seguridad que enfrenta tu empresa..."></textarea>
+  </div>
 
-          <button type="submit" class="btn-submit"><span>ENVIAR SOLICITUD →</span></button>
-        </form>
+  <button type="submit" class="btn-submit" id="submitBtn"><span>ENVIAR SOLICITUD →</span></button>
+  <div id="formMsg" class="form-msg" role="status" aria-live="polite"></div>
+</form>
       </div>
 
     </div>
